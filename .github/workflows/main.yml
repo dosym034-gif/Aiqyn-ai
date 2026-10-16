@@ -57,4 +57,4 @@ jobs:
         with:
           name: AYQYN-JARVIS-APK
           path: app/build/outputs/apk/debug/*.apk
-          if
+          if-no-files-found: error
