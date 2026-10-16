@@ -1,4 +1,4 @@
-package com.ayqyn.jarvis
+package kz.ayqyn.jarvis
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
