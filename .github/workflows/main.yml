@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Download source
@@ -17,8 +17,11 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Install Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Configure Android SDK
+        run: |
+          echo "ANDROID_HOME=$ANDROID_SDK_ROOT" >> "$GITHUB_ENV"
+          yes | sdkmanager --licenses || true
+          sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
 
       - name: Build APK
         run: |
